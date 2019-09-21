@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Client</title>
+    <style>  .form {display: flex; flex-direction: column;}  </style>
+</head>
+<body>
+    <h4 id="author" title="GossJS">Искужин И. Р.</h4>
+    <form id="form">
+          <input class="form" placeholder="n1" type="number" >
+          <input class="form" placeholder="n2" type="number" >
+        <br>
+        <b>Answer: <span id="answer">0</span></b>
+    </form>
+    <br>
+    <button class="button" type="button" id="add">+</button>
+    <button  class="button" id="mpy">&times</button>
+ 
+      <script>
+        const add = document.getElementById('add');
+        const mpy = document.getElementById('mpy');
+        const answer = document.getElementById('answer');
+        let n1, n2;
+        
+        add.addEventListener('click', function(event) {
+          n1 = form[0].value;
+          n2 = form[1].value;
+          fetch(`https://calm-dusk-48073.herokuapp.com/api/add/${n1}/${n2}`).then(x=> x.json()).then(x => answer.textContent = x.result);
+        })
+        mpy.addEventListener('click', function(event) {
+          n1 = form[0].value;
+          n2 = form[1].value;
+          fetch(`https://calm-dusk-48073.herokuapp.com/api/mpy/${n1}/${n2}`).then(x=> x.json()).then(x => answer.textContent = x.result);
+        })
+      </script>
+</body>
+</html> 

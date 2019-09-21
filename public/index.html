@@ -6,6 +6,7 @@
     <style>  .form {display: flex; flex-direction: column;}  </style>
 </head>
 <body>
+    <h3>Задание 4. Сервер на express</h3>
     <h4 id="author" title="GossJS">Искужин И. Р.</h4>
     <form id="form">
           <input class="form" placeholder="n1" type="number" >
@@ -16,6 +17,15 @@
     <br>
     <button class="button" type="button" id="add">+</button>
     <button  class="button" id="mpy">&times</button>
+     
+    
+    <h3>Задание 4. Статика</h3>
+    <a href="/about">About page</a>
+    <p><a href="/static_pdf_file_one">Static PDF file 1</a></p>
+    <p><a href="/static_pdf_file_two">Static PDF file 2</a></p>
+    <p><a href="/static_pdf_file_three">Не существующая страница 404</a></p>
+
+     
  
       <script>
         const add = document.getElementById('add');
@@ -26,12 +36,12 @@
         add.addEventListener('click', function(event) {
           n1 = form[0].value;
           n2 = form[1].value;
-          fetch(`http://localhost:4000/api/add/${n1}/${n2}`).then(x=> x.json()).then(x => answer.textContent = x.result);
+          fetch(`https://calm-dusk-48073.herokuapp.com/api/add/${n1}/${n2}`).then(x=> x.json()).then(x => answer.textContent = x.result);
         })
         mpy.addEventListener('click', function(event) {
           n1 = form[0].value;
           n2 = form[1].value;
-          fetch(`http://localhost:4000/api/mpy/${n1}/${n2}`).then(x=> x.json()).then(x => answer.textContent = x.result);
+          fetch(`https://calm-dusk-48073.herokuapp.com/api/mpy/${n1}/${n2}`).then(x=> x.json()).then(x => answer.textContent = x.result);
         })
       </script>
 </body>
