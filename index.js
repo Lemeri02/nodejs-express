@@ -1,7 +1,11 @@
+const fs = require('fs');
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
+
 app
+.use(cors())
 .use('/api', require('./api')(express))
 .get('/', (req, res) => {
     res
@@ -17,7 +21,7 @@ app
     .set({
         'Content-Type':'text/javascript; charset=utf-8'
     })
-    require('fs').createReadStream('./index.js').pipe(res);
+    fs.createReadStream('./index.js').pipe(res);
 })
 .use((req, res) => {
     res
