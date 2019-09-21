@@ -2,7 +2,7 @@ const fs = require('fs');
 const express = require('express');
 const cors = require('cors');
 const app = express();
-
+const PORT = process.env.PORT || 4000;
 
 app
 .use(cors())
@@ -31,4 +31,4 @@ app
     })
     .send('<h1>Не найдено</h1>');
 })
-.listen(4000, ()=>console.log(process.pid));
+.listen(PORT, ()=>console.log(`${process.pid} on ${PORT}`));
